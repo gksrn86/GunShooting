@@ -20,6 +20,7 @@ public class LivingEntity : MonoBehaviour, IDamageable {
     public virtual void TakeHit(float damage, Vector3 hitPoint , Vector3 hitDirection) {
         //do some stuff here with hit var
         //히트 변수와 함께 여기서 몇몇의 처리를 한다
+	//ヒット変数とともにここでいくつかの処理を行う。
         TakeDamage(damage);
     }
     public virtual void TakeDamage(float damage)
