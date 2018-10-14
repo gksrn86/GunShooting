@@ -102,6 +102,7 @@ public class GameUI : MonoBehaviour {
     }
 
     // UI Input
+    //UI入力
     public void StartNewGame()
     {
         SceneManager.LoadScene("Game");
