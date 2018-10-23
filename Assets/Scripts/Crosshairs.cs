@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Crosshairs : MonoBehaviour {
-    //조준점을 만들기 위한 스크립트
     //照準点を作るためのスクリプト
 	
     public LayerMask targetMask;
