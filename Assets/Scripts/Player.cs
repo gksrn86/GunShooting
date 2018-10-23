@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-/*player와 playercontroller가 붙어 있을 수 있도록 구현 하기위해서 RequireComponent속성을 추가한다.*/
+
 //プレーヤーとプレイヤー·コントローラーが付いているように実装するためにRequireComponent属性を追加する。
 [RequireComponent(typeof(PlayerController))]
 [RequireComponent(typeof(GunController))]
@@ -40,15 +40,13 @@ public class Player : LivingEntity {
     void Update() {
        
 
-        //이동 입력 받는 곳 Movement input
         //移動入力先
         Vector3 moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         Vector3 moveVelotcity = moveInput.normalized * moveSpeed;
         controller.Move(moveVelotcity);
 
-        /*카메라가 플레이어를 바라보는 시점을 지정하기 위해서*/
+        
         //カメラがプレーヤーを見る時点を指定するために
-        //바라보는 방향을 입력 받는 곳  Look input
         //見渡す方向を入力するところ
         Ray ray = viewCamera.ScreenPointToRay(Input.mousePosition);
         Plane groundPlane = new Plane(Vector3.up, Vector3.up * gunController.GunHeight);
@@ -65,7 +63,6 @@ public class Player : LivingEntity {
                 gunController.Aim(point);
             }   
         }
-        //무기 조작 입력 Weapon input
         //無機操作入力
         if (Input.GetMouseButton(0)){
             gunController.OnTriggerHold();
