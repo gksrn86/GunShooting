@@ -43,7 +43,6 @@ public class MapGenerator : MonoBehaviour
         tileMap = new Transform[currentMap.mapSize.x, currentMap.mapSize.y];
         System.Random prng = new System.Random(currentMap.seed);
 
-        //Generating coords  좌표들을 생성
         //座標を生成
         allTileCoords = new List<Coord>();
         for(int x= 0; x<currentMap.mapSize.x; x++)
@@ -65,7 +64,7 @@ public class MapGenerator : MonoBehaviour
         Transform mapHolder = new GameObject(holderName). transform;
         mapHolder.parent = transform;
 
-        //Spawning tile 타일 스폰
+        //Spawning tile 
         //タイル·スポンサー
         for(int x = 0; x < currentMap.mapSize.x; x++)
         {
@@ -79,7 +78,7 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
-        //Spawning obstacles 장애물 스폰
+        //Spawning obstacles 
         //障害物スポンサー
         bool[,] obstacleMap = new bool[(int)currentMap.mapSize.x,(int)currentMap.mapSize.y];
 
@@ -118,7 +117,7 @@ public class MapGenerator : MonoBehaviour
 
         shuffledOpenTileCoords = new Queue<Coord>(Utility.ShuffleArray(allOpenCoords.ToArray(), currentMap.seed));
 
-        //Creating navmesh mask 내브메쉬 생성
+        //Creating navmesh mask 
         //ナブメッシュ生成
         Transform maskLeft = Instantiate(navmeshMaskPrefab, Vector3.left* (currentMap.mapSize.x + maxMapSize.x) / 4f * tileSize, Quaternion.identity) as Transform;
         maskLeft.parent = mapHolder;
